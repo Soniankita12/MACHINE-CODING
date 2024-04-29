@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { FaStar } from "react-icons/fa";
+import PopOver from "./component/PopOver";
 
 function App() {
   const [rating, setrating] = useState(null);
@@ -15,7 +16,7 @@ function App() {
               type="radio"
               name="rating"
               value={currentRating}
-              onClick={()=>setrating(currentRating)}
+              onClick={() => setrating(currentRating)}
             />
             <FaStar
               onMouseEnter={() => sethover(currentRating)}
@@ -28,6 +29,11 @@ function App() {
         );
       })}
       <p>Your Rating is {rating}</p>
+      <h1>Popover Example</h1>
+      <PopOver
+        trigger={<button>Click Me</button>}
+        content={<p>This is the popover content.</p>}
+      />
     </>
   );
 }
